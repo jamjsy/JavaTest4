@@ -1,0 +1,23 @@
+version: "3"
+services:
+  mysql-1:
+    container_name: mysql
+    image: datamysql:v1
+    ports:
+      - "3306:3306"
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+      
+  java-1:
+    container_name: myjava
+    image: myjdk:v1
+    depends_on:
+      - mysql-1
+    links:
+      - mysql-1
+    environment:
+      MYSQL_IP: 192.168.99.100
+      MYSQL_URL: jdbc:mysql://192.168.99.100:3306/sakila
+      MYSQL_ROOT_PASSWORDS: root
+      MYSQL_PORT: 3306
+ 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hand.infra.mapper.FilmMapper">
+    <resultMap id="findByName" type="com.hand.domain.entity.Film">
+        <result property="film_id" column="film_id"></result>
+        <result property="title" column="title"></result>
+        <result property="description" column="description"></result>
+        <result property="language_id" column="language_id"></result>
+    </resultMap>
+    <select id="findByName" parameterType="String" resultMap="findByName">
+        INSERT  INTO  Film (film_id, title,language_id,description) values (200,xxxxx,1,xxxxxxxxxxxx)
+    </select>
+</mapper>
